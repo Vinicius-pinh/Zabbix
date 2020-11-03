@@ -8,9 +8,9 @@ After import the template on Zabbix, you will need to put the script on zabbix h
 
 UserParameter=netinfo[*],PowerShell.exe -ExecutionPolicy UnRestricted -File <SCRIPT PATH> $1 $2
 
-***Note: Remember of change the value <SCRIPT PATH> to the real script path.
+***Note: Remember to change the value <SCRIPT PATH> to the real script path.
 
-After it is only add the script at the host that you want to monitor.
+After it is only add the template at the host that you want to monitor.
 
 
 How can I test the script on client side?
