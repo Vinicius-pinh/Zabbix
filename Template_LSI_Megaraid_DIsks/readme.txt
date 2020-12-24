@@ -2,7 +2,7 @@ Template to get information about Disks in LSI controller
 
 This template was created to get only information about disks in LSI controller. 
 
-Obs: It use MegaCli64 utilits. 
+Obs: It use MegaCli64 utility. 
 
 How to use
 
