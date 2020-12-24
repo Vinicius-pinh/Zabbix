@@ -1,0 +1,77 @@
+Template to get information about Disks in LSI controller
+
+This template was created to get only information about disks in LSI controller. 
+
+Obs: It use MegaCli64 utilits. 
+
+How to use
+
+---Zabbix side
+  -Import template 
+
+---Client side 
+
+ - Script
+   the script is called raiddisc.sh, get it and put on this path /etc/zabbix/scripts/
+ 
+ - Json file
+   execute this command to create the json file: 
+   touch /etc/zabbix/scripts/info.json | chown zabbix: /etc/zabbix/scripts/info.json  
+ 
+ - Crontab schedule
+   Create in root crontab a schedule to run the script in every day to populate json file. To do it, use this commands:
+   
+   crontab -e
+ 
+   and add at the final of archive the follow line:
+
+   * 12 * * *  /etc/zabbix/scripts/raiddisc.sh disk
+
+   With it, the script will run all days at hour 12 and populate, then populate the file /etc/zabbix/scripts/info.json
+   
+ 
+ - Zabbix user 
+   To get the results you will need to add this line on sudo file:
+
+   zabbix  ALL=NOPASSWD:/etc/zabbix/scripts/raiddisc.sh
+
+   to do it you can use the command:
+
+   sudo visudo
+
+   to open the editor and put the text above at the final of file.
+
+ - Zabbix agent.conf (User Parameter)
+   at zabbix_agent.conf, you need to add the follow lines:
+ 
+   UserParameter:disk[*], cat /etc/zabbix/json.info
+   (to get information to json file and create itens based on discovery)
+
+   UserParameter:diskinfo[*], /etc/zabbix/script/raiddisk $1 $2 $3   
+   (to get values according itens)
+
+
+How can I test the script on client side?
+
+You can test the script running it via powershell with this parameters. E.g:
+
+ /etc/zabbix/scripts/raiddisk.sh disk 
+   ****to fill the /etc/zabbix/scripts/info.json file****
+  then;
+ echo /etc/zabbix/scripts/info.json 
+ 
+ to see if it is charged with information needed. E.g:
+ 
+{ "data":[
+ {"{#SLOTN}":"0","{#DEVID}":"8"}
+ ,
+ {"{#SLOTN}":"1","{#DEVID}":"9"}
+,
+ {"{#SLOTN}":"2","{#DEVID}":"10"} 
+ ]}
+ 
+ So, get the slotn and devid values and put as arg 2 and 3 as it:
+
+ 
+ /etc/zabbix/scripts/raiddisk.sh diskinfo 0,8 
+   ****return disk status****
