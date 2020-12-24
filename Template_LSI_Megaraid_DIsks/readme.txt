@@ -19,7 +19,7 @@ How to use
    touch /etc/zabbix/scripts/info.json | chown zabbix: /etc/zabbix/scripts/info.json  
  
  - Crontab schedule
-   Create in root crontab a schedule to run the script in every day to populate json file. To do it, use this commands:
+   Create in root crontab a schedule to run the script every day to populate json file. To do it, use theses commands:
    
    crontab -e
  
@@ -27,7 +27,7 @@ How to use
 
    * 12 * * *  /etc/zabbix/scripts/raiddisc.sh disk
 
-   With it, the script will run all days at hour 12 and populate, then populate the file /etc/zabbix/scripts/info.json
+   With it, the script will run every days with an interval of 12 and populate the file /etc/zabbix/scripts/info.json
    
  
  - Zabbix user 
@@ -39,7 +39,7 @@ How to use
 
    sudo visudo
 
-   to open the editor and put the text above at the final of file.
+   to open the editor and put the text above at the final of the file.
 
  - Zabbix agent.conf (User Parameter)
    at zabbix_agent.conf, you need to add the follow lines:
@@ -53,7 +53,7 @@ How to use
 
 How can I test the script on client side?
 
-You can test the script running it via powershell with this parameters. E.g:
+You can test the script running it via powershell with these parameters. E.g:
 
  /etc/zabbix/scripts/raiddisk.sh disk 
    ****to fill the /etc/zabbix/scripts/info.json file****
