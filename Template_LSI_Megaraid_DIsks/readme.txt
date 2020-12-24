@@ -58,7 +58,7 @@ You can test the script running it via powershell with this parameters. E.g:
  /etc/zabbix/scripts/raiddisk.sh disk 
    ****to fill the /etc/zabbix/scripts/info.json file****
   then;
- echo /etc/zabbix/scripts/info.json 
+ cat /etc/zabbix/scripts/info.json 
  
  to see if it is charged with information needed. E.g:
  
