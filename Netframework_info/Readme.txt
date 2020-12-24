@@ -28,7 +28,7 @@ You can test the script running it via powershell with this parameters. E.g:
 
 
 
-Knowen Issues:
+Known Issues:
 
 To charge the variable $session, the windows upadate service needs be enabled and running. You will perceive this issue if you receive error related this variable when to try get values of KBNUMBER and UPDATEDATE.
 
