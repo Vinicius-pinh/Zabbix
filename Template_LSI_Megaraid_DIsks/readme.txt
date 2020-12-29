@@ -48,7 +48,7 @@ How to use
    UserParameter=disk[*], cat /etc/zabbix/scripts/info.json
    (to get information to json file and create itens based on discovery)
 
-   UserParameter=diskinfo[*], /etc/zabbix/script/raiddisc.sh $1 $2 $3   
+   UserParameter=diskinfo[*], /etc/zabbix/scripts/raiddisc.sh $1 $2 $3   
    (to get values according itens)
 
 
