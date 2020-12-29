@@ -56,7 +56,7 @@ How can I test the script on client side?
 
 You can test the script running it via powershell with these parameters. E.g:
 
- /etc/zabbix/scripts/raiddisk.sh disk 
+ /etc/zabbix/scripts/raiddisc.sh disk 
    ****to fill the /etc/zabbix/scripts/info.json file****
   then;
  cat /etc/zabbix/scripts/info.json 
