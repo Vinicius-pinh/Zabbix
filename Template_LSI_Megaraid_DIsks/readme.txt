@@ -31,9 +31,10 @@ How to use
    
  
  - Zabbix user 
-   To get the results you will need to add this line on sudo file:
+   To get the results you will need to add these lines on sudo file:
 
    zabbix  ALL=NOPASSWD:/etc/zabbix/scripts/raiddisc.sh
+   zabbix  ALL=NOPASSWD:<<<<PATH OF MEGACLI64>>>>> ((((USE PATH OF MEGACLI64 instead <<<<PATH OF MEGACLI64>>>>>)))
 
    to do it you can use the command:
 
