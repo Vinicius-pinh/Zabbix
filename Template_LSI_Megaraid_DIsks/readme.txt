@@ -45,10 +45,10 @@ How to use
  - Zabbix agent.conf (User Parameter)
    at zabbix_agent.conf, you need to add the follow lines:
  
-   UserParameter=disk[*], cat /etc/zabbix/info.json
+   UserParameter=disk[*], cat /etc/zabbix/scripts/info.json
    (to get information to json file and create itens based on discovery)
 
-   UserParameter=diskinfo[*], /etc/zabbix/script/raiddisk $1 $2 $3   
+   UserParameter=diskinfo[*], /etc/zabbix/script/raiddisc.sh $1 $2 $3   
    (to get values according itens)
 
 
@@ -74,5 +74,5 @@ You can test the script running it via powershell with these parameters. E.g:
  So, get the slotn and devid values and put as arg 2 and 3 as it:
 
  
- /etc/zabbix/scripts/raiddisk.sh diskinfo 0 8 
+ /etc/zabbix/scripts/raiddisc.sh diskinfo 0 8 
    ****return disk status****
