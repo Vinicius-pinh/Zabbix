@@ -7,15 +7,13 @@
 if [[ "$1" == "diskinfo" ]];then
  DSKINFO=$2
  DSKINFO1=$3
- STRING1="Slot Number: $DSKINFO -Device Id: $DSKINFO1 - Online, Spun Up"
+ STRING1="Slot Number: $DSKINFO -Device Id: $DSKINFO1"
  MEGACLI1="/usr/local/sbin/MegaCli64"
  DISKS1=`sudo /usr/local/sbin/MegaCli64 -PDlist -aALL -NoLog | egrep 'Slot|Device Id|state' | awk '/Slot/{if (x)print x;x="";}{x=(!x)?$0:x" -"$0;}END{print x;}' | sed 's/Firmware state://g'`
  DISKS2=`echo "$DISKS1" | grep "$STRING1" | cut -d "-" -f "3" |sed 's/ //'`
- 
+
  if [[ "$DISKS2" ]];then
    echo $DISKS2
- else 
-   echo "Failed"
  fi
  
 fi
