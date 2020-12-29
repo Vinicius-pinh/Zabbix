@@ -73,5 +73,5 @@ You can test the script running it via powershell with these parameters. E.g:
  So, get the slotn and devid values and put as arg 2 and 3 as it:
 
  
- /etc/zabbix/scripts/raiddisk.sh diskinfo 0,8 
+ /etc/zabbix/scripts/raiddisk.sh diskinfo 0 8 
    ****return disk status****
