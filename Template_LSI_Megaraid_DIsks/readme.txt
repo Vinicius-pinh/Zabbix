@@ -44,7 +44,7 @@ How to use
  - Zabbix agent.conf (User Parameter)
    at zabbix_agent.conf, you need to add the follow lines:
  
-   UserParameter=disk[*], cat /etc/zabbix/json.info
+   UserParameter=disk[*], cat /etc/zabbix/info.json
    (to get information to json file and create itens based on discovery)
 
    UserParameter=diskinfo[*], /etc/zabbix/script/raiddisk $1 $2 $3   
